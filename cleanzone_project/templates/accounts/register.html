@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create Account - CleanZone{% endblock %}
+
+{% block content %}
+<div class="register-page d-flex align-items-center justify-content-center py-5" style="min-height: 90vh; background-color: #ffffff;">
+  <div class="register-box bg-white p-4 rounded shadow" style="max-width: 400px; width: 100%;">
+    <h2 class="text-center mb-3">Create Account</h2>
+    <p class="text-center text-muted mb-4">Join CleanZone community today</p>
+
+    <!-- Display messages -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="POST" novalidate>
+      {% csrf_token %}
+
+      <div class="mb-3">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {% if form.username.errors %}
+          <div class="text-danger small">{{ form.username.errors|join:", " }}</div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {% if form.email.errors %}
+          <div class="text-danger small">{{ form.email.errors|join:", " }}</div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.phone.label_tag }}
+        {{ form.phone }}
+        <div class="form-text">Phone must be exactly 10 digits.</div>
+        {% if form.phone.errors %}
+          <div class="text-danger small">{{ form.phone.errors|join:", " }}</div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.password1.label_tag }}
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+          <div class="text-danger small">{{ form.password1.errors|join:", " }}</div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+          <div class="text-danger small">{{ form.password2.errors|join:", " }}</div>
+        {% endif %}
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 py-2">
+        <i class="bi bi-person-plus-fill"></i> Create Account
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

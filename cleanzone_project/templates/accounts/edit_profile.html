@@ -1,0 +1,156 @@
+{% extends 'user_base.html' %}
+{% load static %}
+{% block title %}Edit Profile - CleanZone{% endblock %}
+
+{% block content %}
+<style>
+  .edit-profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+
+  .edit-profile-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* Left side form */
+  .edit-profile-form {
+    flex: 1;
+    padding: 2rem;
+  }
+
+  .edit-profile-form h3 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #0e422aff;
+  }
+
+  /* Right side image */
+  .edit-profile-image {
+    flex: 1;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .edit-profile-image img {
+    width: 350px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    height:350px;
+  }
+
+  
+
+  /* Buttons */
+  .btn-success {
+    border-radius: 50px;
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+  }
+
+  .btn-cancel-outline {
+    background: transparent;
+    border: 2px solid #198754;
+    color: #198754;
+    border-radius: 50px;
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-cancel-outline:hover {
+    background: #065831ff;
+    color: #fff;
+  }
+</style>
+
+<div class="container edit-profile-container">
+  <div class="edit-profile-card">
+    <!-- Left Side: Edit Profile Form -->
+    <div class="edit-profile-form">
+      <h3>Edit Profile</h3>
+      <form method="post" id="editProfileForm">
+        {% csrf_token %}
+        <div class="row g-3">
+          <!-- Username -->
+          <div class="col-md-6 mb-4">
+            <label for="id_username" class="form-label">Username</label>
+            <input type="text" id="id_username" name="username" class="form-control mt-2" 
+                   placeholder="Enter Username" value="{{ user.username }}" required>
+          </div>
+
+          <!-- Confirm Username -->
+          <div class="col-md-6">
+            <label for="id_confirm_username" class="form-label">Confirm Username</label>
+            <input type="text" id="id_confirm_username" name="confirm_username" class="form-control mt-2" 
+                   placeholder="Confirm Username" value="{{ user.username }}" required>
+          </div>
+
+          <!-- New Phone Number -->
+          <div class="col-md-6 mt-3">
+            <label for="id_phone" class="form-label mb-2">New Phone Number</label>
+            <input type="tel" id="id_phone" name="phone" class="form-control mt-2" 
+                   pattern="[0-9]{10}" maxlength="10" placeholder="10-digit phone number" 
+                   value="{{ user.userprofile.phone }}" required>
+          </div>
+
+          <!-- Confirm New Phone Number -->
+          <div class="col-md-6">
+            <label for="id_confirm_phone" class="form-label mb-2">Confirm New Phone Number</label>
+            <input type="tel" id="id_confirm_phone" name="confirm_phone" class="form-control mt-2" 
+                   pattern="[0-9]{10}" maxlength="10" placeholder="Re-enter phone number" 
+                   value="{{ user.userprofile.phone }}" required>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="text-center mt-5 d-flex justify-content-center gap-3">
+          <button type="submit" class="btn btn-success px-5">Update Info</button>
+          <a href="{% url 'profile' %}" class="btn btn-cancel-outline">Cancel</a>
+          
+        </div>
+      </form>
+    </div>
+
+    <!-- Right Side: Image + Testimonial -->
+    <div class="edit-profile-image">
+      <img src="{% static 'images/edit_profile.jpg' %}" alt="Edit Profile Image">
+      
+    </div>
+  </div>
+</div>
+
+<!-- Optional JS Validation -->
+<script>
+document.getElementById('editProfileForm').addEventListener('submit', function(e) {
+  const username = document.getElementById('id_username').value.trim();
+  const confirmUsername = document.getElementById('id_confirm_username').value.trim();
+  const phone = document.getElementById('id_phone').value.trim();
+  const confirmPhone = document.getElementById('id_confirm_phone').value.trim();
+
+  if (username !== confirmUsername) {
+    alert('Username and Confirm Username do not match.');
+    e.preventDefault();
+    return;
+  }
+
+  if (phone !== confirmPhone) {
+    alert('Phone Number and Confirm Phone Number do not match.');
+    e.preventDefault();
+    return;
+  }
+});
+</script>
+{% endblock %}

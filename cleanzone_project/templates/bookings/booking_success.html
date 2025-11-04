@@ -1,0 +1,10 @@
+{% extends 'user_base.html' %}
+{% block title %}Booking Successful - CleanZone{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+  <h3> Your service has been successfully booked!</h3>
+  <p>We will contact you shortly to confirm your booking.</p>
+  <a href="{% url 'user_home' %}" class="btn btn-success">Back to Home</a>
+</div>
+{% endblock %}

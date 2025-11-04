@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login - CleanZone{% endblock %}
+
+{% block content %}
+<div class="login-page d-flex align-items-center justify-content-center py-5" style="min-height: 90vh; background-color: #ffffff;">
+  <div class="login-box bg-white p-4 rounded shadow" style="max-width: 400px; width: 100%;">
+    <h2 class="text-center mb-3">Welcome Back</h2>
+    <p class="text-center text-muted mb-4">Login to your CleanZone account</p>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="id_username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="id_username" placeholder="Enter your username" required>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="id_password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="id_password" placeholder="Enter your password" required>
+      </div>
+
+      <div class="text-end mb-3">
+        <a href="{% url 'password_reset' %}" class="text-success text-decoration-none">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 py-2">
+        <i class="bi bi-box-arrow-in-right"></i> Login
+      </button>
+    </form>
+
+    <div class="text-center mt-3">
+      <p class="mb-0">Don't have an account?
+        <a href="{% url 'register' %}" class="text-success text-decoration-none fw-semibold">Register</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
