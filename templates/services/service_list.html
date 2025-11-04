@@ -1,0 +1,26 @@
+{% extends 'user_base.html' %}
+{% block title %}Our Services - CleanZone{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">Our Services</h2>
+  <div class="row">
+    {% for service in services %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        {% if service.image %}
+        <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.name }}" style="height: 200px; object-fit: cover;">
+        {% endif %}
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ service.name }}</h5>
+          <p class="card-text text-muted">{{ service.description|truncatechars:100 }}</p>
+          <p class="fw-bold">₹{{ service.price }}</p>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-center text-muted">No services available at the moment.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
