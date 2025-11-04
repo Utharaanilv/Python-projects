@@ -1,0 +1,151 @@
+
+{% extends 'user_base.html' %}
+{% load static %}
+{% block title %}User Home - CleanZone{% endblock %}
+
+{% block content %}
+
+<!--  Hero Section -->
+
+<section class="user-hero-section d-flex align-items-center text-center text-white">
+  <div class="container py-5">
+    <h1 class="display-4 fw-bold">
+      Welcome Back, <span class="text-success">{{ user.username }}</span> 
+    </h1>
+
+    <!--  Typing animated welcome line -->
+    <p class="typing-text mt-3 lead"></p>
+
+    <div class="mt-4">
+      <a href="{% url 'book_service' %}" class="btn btn-success btn-lg me-2">Book a Service</a>
+      <a href="{% url 'profile' %}" class="btn btn-outline-light btn-lg">Go to Profile</a>
+    </div>
+  </div>
+</section>
+
+<!--  About Section -->
+<section id="about" class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="fw-bold text-success">About CleanZone</h2>
+        <p class="lead mt-3">
+          Your trusted partner for professional cleaning services. We are committed to delivering exceptional cleanliness with transparency, reliability, and eco-friendly methods.
+        </p>
+        <ul class="list-unstyled mt-3">
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Trained and trusted professionals</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Eco-friendly cleaning solutions</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i> Transparent pricing and updates</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <img src="{% static 'images/cleaning-hero.jpg' %}" alt="About CleanZone" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Testimonials Section -->
+<section id="testimonials" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What Our <span class="text-success">Customers Say</span></h2>
+      <p class="lead mt-2">
+        Here’s what our happy customers have to say about our services.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Testimonial 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-quote display-5 text-success"></i>
+            </div>
+            <p class="fst-italic">
+              "CleanZone made my home sparkle! The team is punctual, polite, and very professional."
+            </p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                SJ
+              </div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Sarah Johnson</h6>
+                <small class="text-muted">Homeowner • Downtown</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-quote display-5 text-success"></i>
+            </div>
+            <p class="fst-italic">
+              "Excellent service for my office. Reliable, thorough, and affordable. Highly recommended!"
+            </p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                MC
+              </div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Michael Chen</h6>
+                <small class="text-muted">Business Owner</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-quote display-5 text-success"></i>
+            </div>
+            <p class="fst-italic">
+              "I rely on CleanZone for multiple properties. Their team consistently delivers top-notch results."
+            </p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                LM
+              </div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Laura Martinez</h6>
+                <small class="text-muted">Property Manager</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ratings Summary Row -->
+    <div class="row text-center mt-5">
+      <div class="col-md-3 mb-3">
+        <h3 class="fw-bold text-success mb-0">4.9/5</h3>
+        <p class="text-muted mb-0">Average Rating</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h3 class="fw-bold text-success mb-0">5000+</h3>
+        <p class="text-muted mb-0">Happy Customers</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h3 class="fw-bold text-success mb-0">15000+</h3>
+        <p class="text-muted mb-0">Cleanings Completed</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h3 class="fw-bold text-success mb-0">24/7</h3>
+        <p class="text-muted mb-0">Customer Support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

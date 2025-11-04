@@ -1,0 +1,50 @@
+{% extends 'user_base.html' %}
+{% load widget_tweaks %}
+{% block title %}Book Service - CleanZone{% endblock %}
+
+{% block content %}
+<!-- Booking Section -->
+<section class="py-5" style="background-color: #f2f2f2;">  <!-- ✅ Light Grey Background -->
+  <div class="container">
+    <h2 class="text-center mb-4">Book a Cleaning Service</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="p-4 rounded shadow" style="background-color: white;">
+          <form method="POST" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="id_service_type" class="form-label fw-semibold">Service Type</label>
+              {{ form.service_type|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+              <label for="id_date" class="form-label fw-semibold">Date</label>
+              {{ form.date|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+              <label for="id_time" class="form-label fw-semibold">Time</label>
+              {{ form.time|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+              <label for="id_full_name" class="form-label fw-semibold">Full Name</label>
+              {{ form.full_name|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+              <label for="id_phone" class="form-label fw-semibold">Phone</label>
+              {{ form.phone|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+              <label for="id_address" class="form-label fw-semibold">Address</label>
+              {{ form.address|add_class:"form-control" }}
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 py-2 fw-semibold">
+              Book Service
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

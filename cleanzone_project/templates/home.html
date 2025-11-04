@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - CleanZone{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center text-center">
+  <div class="container py-5">
+    <h1 class="display-4 fw-bold text-white">
+      Professional <span class="text-success">Cleaning Services</span> at Your Doorstep
+    </h1>
+    <p class="lead mt-3 text-white">
+      Experience the convenience of professional cleaning services with transparent booking,
+      real-time updates, and trusted professionals.
+    </p>
+    <div class="mt-4">
+      <a href="/book" class="btn btn-success btn-lg me-2">Get Started Today</a>
+      <a href="#services" class="btn btn-outline-light btn-lg">View Services</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Optional Services Section -->
+<section class="container py-5">
+
+  <div class="row text-center">
+      <h2 class="fw-bold mb-5"> Our <span class="text-success">Services</span></h2>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Kitchen Cleaning</h5>
+          <p class="card-text">Spotless kitchens with our deep cleaning service.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Bathroom Cleaning</h5>
+          <p class="card-text">Sparkling bathrooms with eco-friendly products.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Water Tank Cleaning</h5>
+          <p class="card-text">Ensure safe, clean water with expert tank cleaning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What Our <span class="text-success">Customers Say</span></h2>
+      <p class="lead mt-2">
+        Don't just take our word for it — here's what our satisfied customers have to say about
+        our cleaning services and experience.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Testimonial 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-quote display-5 text-success"></i>
+            </div>
+            <p class="fst-italic">
+              "CleanZone transformed my home! Their attention to detail is incredible. The team arrived on time, worked efficiently, and left everything sparkling clean."
+            </p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                SJ
+              </div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Sarah Johnson</h6>
+                <small class="text-muted">Homeowner • Downtown</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-quote display-5 text-success"></i>
+            </div>
+            <p class="fst-italic">
+              "Outstanding service for our office cleaning needs. Professional, reliable, and always deliver exceptional results. Highly recommended!"
+            </p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                MC
+              </div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Michael Chen</h6>
+                <small class="text-muted">Business Owner • City Center</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="bi bi-quote display-5 text-success"></i>
+            </div>
+            <p class="fst-italic">
+              "We manage 50+ properties and CleanZone is our go-to service. They handle everything from regular maintenance to deep cleaning with professionalism."
+            </p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                LM
+              </div>
+              <div class="ms-3">
+                <h6 class="fw-bold mb-0">Laura Martinez</h6>
+                <small class="text-muted">Property Manager • Metro Area</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional Ratings Summary Row -->
+    <div class="row text-center mt-5">
+      <div class="col-md-3 mb-3">
+        <h3 class="fw-bold text-success mb-0">4.9/5</h3>
+        <p class="text-muted mb-0">Average Rating</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h3 class="fw-bold text-success mb-0">5000+</h3>
+        <p class="text-muted mb-0">Happy Customers</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h3 class="fw-bold text-success mb-0">15000+</h3>
+        <p class="text-muted mb-0">Cleanings Completed</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h3 class="fw-bold text-success mb-0">24/7</h3>
+        <p class="text-muted mb-0">Customer Support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Get in <span class="text-success">Touch</span></h2>
+      <p class="text-muted">
+        Ready to experience professional cleaning? Contact us today for a free quote or to schedule your service.
+        We're here to help!
+      </p>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- Left: Contact Information -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body p-4">
+            <h5 class="fw-bold mb-3">Contact Information</h5>
+            <p class="text-muted">We're available through multiple channels to serve you better. Choose the most convenient way to reach us.</p>
+
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-telephone fs-4 text-success me-3"></i>
+              <div>
+                <h6 class="mb-0">Phone</h6>
+                <small class="text-muted">+1 (555) 123-4567</small>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-envelope fs-4 text-success me-3"></i>
+              <div>
+                <h6 class="mb-0">Email</h6>
+                <small class="text-muted">hello@cleanzone.com</small>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-geo-alt fs-4 text-success me-3"></i>
+              <div>
+                <h6 class="mb-0">Service Areas</h6>
+                <small class="text-muted">50+ Locations across the city</small>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-3">
+              <i class="bi bi-clock fs-4 text-success me-3"></i>
+              <div>
+                <h6 class="mb-0">Hours</h6>
+                <small class="text-muted">7 AM - 9 PM, Monday through Sunday</small>
+              </div>
+            </div>
+
+            <div class="p-3 rounded bg-success-subtle mt-4 text-center">
+              <h6 class="fw-bold">Emergency Cleaning?</h6>
+              <p class="small mb-2">Need immediate cleaning assistance? Our emergency hotline is available 24/7.</p>
+              <a href="tel:+15551234567" class="btn btn-success w-100">
+                <i class="bi bi-telephone-outbound me-2"></i> Call Emergency Line
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="col-lg-6 d-flex align-items-center justify-content-center">
+        <img src="{% static 'images/contact_image.jpg' %}" 
+             alt="Contact Illustration" 
+             class="img-fluid rounded shadow">
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

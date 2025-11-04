@@ -1,0 +1,84 @@
+{% extends 'user_base.html' %}
+{% block title %}My Bookings - CleanZone{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="text-center mb-4">My Bookings</h2>
+
+  <!-- Current Bookings -->
+  <h4 class="mb-3">Current Bookings</h4>
+  <table class="table table-bordered mb-5">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in current_bookings %}
+      <tr>
+        <td>{{ booking.get_service_type_display }}</td>
+        <td>{{ booking.date }}</td>
+        <td>{{ booking.time }}</td>
+        <td>
+          {% if booking.status == 'Pending' %}
+            <span class="badge bg-warning text-dark">{{ booking.status }}</span>
+          {% elif booking.status == 'Accepted' %}
+            <span class="badge bg-primary">{{ booking.status }}</span>
+          {% else %}
+            <span class="badge bg-success">{{ booking.status }}</span>
+          {% endif %}
+        </td>
+        <td>
+          {% if booking.status == 'Pending' %}
+          <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger btn-sm"
+             onclick="return confirm('Are you sure you want to cancel this booking?');">Cancel</a>
+          {% else %}
+          <span class="text-muted">—</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" class="text-center text-muted">No current bookings.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Past Bookings -->
+  <h4 class="mb-3">Past Bookings</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in past_bookings %}
+      <tr>
+        <td>{{ booking.get_service_type_display }}</td>
+        <td>{{ booking.date }}</td>
+        <td>{{ booking.time }}</td>
+        <td>
+          {% if booking.status == 'Completed' %}
+            <span class="badge bg-success">{{ booking.status }}</span>
+          {% elif booking.status == 'Cancelled' %}
+            <span class="badge bg-secondary">{{ booking.status }}</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="4" class="text-center text-muted">No past bookings.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
